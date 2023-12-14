@@ -5,8 +5,6 @@ function Home() {
     <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
   <div className="container max-w-screen-lg mx-auto">
     <div>
-      <h2 className="font-semibold text-xl text-gray-600">Responsive Form</h2>
-      <p className="text-gray-500 mb-6">Form is mobile responsive. Give it a try.</p>
 
       <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
         <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
@@ -17,14 +15,33 @@ function Home() {
 
           <div className="lg:col-span-2">
             <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-              <div className="md:col-span-5">
-                <label >Full Name</label>
-                <input type="text" name="full_name" id="full_name" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                
+                 <div className="md:col-span-1">
+                <label>Age</label>
+                <input type="number" name="age" id="age" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
+              </div>
+
+              <div className="md:col-span-1">
+                <label>Gender</label>
+                <select name="gender" id="gender" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder='select'>
+                    <option value="male">Male</option>
+                    <option value={'women'}>Women</option>
+                </select>
+              </div>
+
+              <div className="md:col-span-1">
+                <label>Weight</label>
+                <input type="number" name="weight" id="weight" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
+              </div>
+
+              <div className="md:col-span-1">
+                <label>Height</label>
+                <input type="text" name="height" id="height" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
               </div>
 
               <div className="md:col-span-5">
                 <label >Email Address</label>
-                <input type="text" name="email" id="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="email@domain.com" />
+                <input type="text" name="email" id="email" className="h-10 border mt-1 rounded px-4  bg-gray-50" value="" placeholder="email@domain.com" />
               </div>
 
               <div className="md:col-span-3">
