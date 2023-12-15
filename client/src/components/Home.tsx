@@ -1,6 +1,16 @@
 import React from 'react'
 
 function Home() {
+    const [age,setAge] = React.useState<number>(23)
+    const [weight,setWeight] = React.useState<number>(225)
+    const [gender, setGender] = React.useState<string>("male")
+    const [height,setHeight] = React.useState<string>("5'10")
+    const [goals, setGoals] = React.useState<string>('loss')
+    const [level, setLevel] = React.useState<string>('newbie')
+    const handleSubmit = (e:any) => {
+        e.preventDefault()
+        console.log(level)
+    }
   return (
     <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
   <div className="container max-w-screen-lg mx-auto">
@@ -14,16 +24,16 @@ function Home() {
           </div>
 
           <div className="lg:col-span-2">
-            <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:flex md:flex-col md:flex-wrap">
+            <form onSubmit={handleSubmit} className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:flex md:flex-col md:flex-wrap">
                 <div className='flex justify-between w-full'>
                     <div className="md:col-span-1 mr-2">
                         <label>Age</label>
-                        <input type="number" name="age" id="age" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
+                        <input type="number" name="age" id="age" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value={age} onChange={(e:any) => {setAge(e.target.value)}} />
                     </div>
 
                     <div className="md:col-span-1 mr-2">
                         <label>Gender</label>
-                        <select name="gender" id="gender" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50 appearance-none" placeholder='select'>
+                        <select name="gender" id="gender" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50 appearance-none" value={gender} onChange={(e:any) => {setGender(e.target.value)}}>
                             <option value="male">Male</option>
                             <option value='women'>Women</option>
                         </select>
@@ -31,19 +41,19 @@ function Home() {
 
                     <div className="md:col-span-1 mr-2">
                         <label>Weight</label>
-                        <input type="number" name="weight" id="weight" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
+                        <input type="number" name="weight" id="weight" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="ex: 223" value={weight} onChange={(e:any) => {setWeight(e.target.value)}} />
                     </div>
 
                     <div className="md:col-span-1 mr-2">
                         <label>Height</label>
-                        <input type="text" name="height" id="height" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
+                        <input type="text" name="height" id="height" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="ex: 5'10" value={height} onChange={(e:any) => (setHeight(e.target.value))} />
                     </div>
                 </div>
 
                 <div className='justify-between w-full'>
                     <div className="md:col-span-1 mr-2">
                         <label>Fitness Goals</label>
-                        <select name="goals" id="goals" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder='select'>
+                        <select name="goals" id="goals" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={goals} onChange={(e:any) => {setGoals(e.target.value)}}>
                             <option value="loss">Weight Loss</option>
                             <option value='gain'>Weight Gain</option>
                             <option value="endurance">Endurance</option>
@@ -54,7 +64,7 @@ function Home() {
                 <div className='justify-between w-full'>
                     <div className="md:col-span-1 mr-2">
                         <label>Current Fitness Level</label>
-                        <select name="level" id="level" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder='select'>
+                        <select name="level" id="level" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"  value={level} onChange={(e:any) => {setLevel(e.target.value)}}>
                             <option value="newbie">No Exercise</option>
                             <option value="Light">Light Exercise/Sports 1-3 Days/Week</option>
                             <option value="moderate">Moderate Exercise/Sports 3-5 Days/Week</option>
@@ -103,17 +113,17 @@ function Home() {
                             Sports
                             </label>
                         </div>
-</div>
+                       </div>
                    </div>
                 </div>
       
               <div className="md:col-span-5 text-right mt-5">
                 <div className="inline-flex items-end">
-                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                  <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
                 </div>
               </div>
 
-            </div>
+            </form>
             
           </div>
         </div>
