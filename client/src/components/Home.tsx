@@ -68,7 +68,7 @@ function Home() {
                             <option value="newbie">No Exercise</option>
                             <option value="Light">Light Exercise/Sports 1-3 Days/Week</option>
                             <option value="moderate">Moderate Exercise/Sports 3-5 Days/Week</option>
-                            <option value="active">Hard Exercise/Sports 6-7 Days/Week</option>
+                            <option value="active">Hard Exercise/Sports 6-7 Days/Wee</option>
                         </select>
                     </div>
                 </div>
