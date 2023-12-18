@@ -64,11 +64,11 @@ function Home() {
                 <div className='justify-between w-full'>
                     <div className="md:col-span-1 mr-2">
                         <label>Current Fitness Level</label>
-                        <select name="level" id="level" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"  value={level} onChange={(e:any) => {setLevel(e.target.value)}}>
+                        <select name="level" id="level" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"  value={goals} onChange={(e:any) => {setLevel(e.target.value)}}>
                             <option value="newbie">No Exercise</option>
                             <option value="Light">Light Exercise/Sports 1-3 Days/Week</option>
                             <option value="moderate">Moderate Exercise/Sports 3-5 Days/Week</option>
-                            <option value="active">Hard Exercise/Sports 6-7 Days/Wee</option>
+                            <option value="active">Hard Exercise/Sports 6-7 Days/Week</option>
                         </select>
                     </div>
                 </div>
