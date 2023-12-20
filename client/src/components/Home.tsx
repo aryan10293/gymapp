@@ -11,7 +11,6 @@ function Home() {
         e.preventDefault()
         console.log(level)
     }
-    console.log('lol')
   return (
     <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
   <div className="container max-w-screen-lg mx-auto">
