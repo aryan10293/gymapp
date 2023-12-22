@@ -9,7 +9,7 @@ function Home() {
     const [level, setLevel] = React.useState<string>('newbie')
     const handleSubmit = (e:any) => {
         e.preventDefault()
-        console.log(level)
+
     }
     // im finna apply to college fuck it   i need hella help
   return (
