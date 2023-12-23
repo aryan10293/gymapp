@@ -11,7 +11,6 @@ function Home() {
         e.preventDefault()
 
     }
-    // im finna apply to college fuck it   i need hella help
   return (
     <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
   <div className="container max-w-screen-lg mx-auto">
