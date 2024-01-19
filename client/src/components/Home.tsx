@@ -7,10 +7,45 @@ function Home() {
     const [height,setHeight] = React.useState<string>("5'10")
     const [goals, setGoals] = React.useState<string>('loss')
     const [level, setLevel] = React.useState<string>('newbie')
-    const handleSubmit = (e:any) => {
-        e.preventDefault()
+    interface CheckboxFormState {
+      [key: string]: boolean;
+    }
+    interface Workout{
+      age: number;
+      weight: number;
+      gender: string;
+      height: string;
+      goals: string;
+      level: string;
+      workoutTypes: CheckboxFormState;
 
     }
+    const [checkboxes, setCheckboxes] = React.useState<CheckboxFormState>({
+    "yoga": false,
+    "strength-training": false,
+    "sports": false,
+    "cardio": false
+    // Add more options as needed
+  });
+    const handleSubmit = (e:any) => {
+        e.preventDefault()
+        const data: Workout = {
+            age:age,
+            weight: weight,
+            gender: gender,
+            height: height,
+            goals: goals,
+            level: level,
+            workoutTypes: checkboxes
+        }
+      console.log(data)
+    }
+    const handleCheckboxChange = (option:string) => {
+    setCheckboxes((prevCheckboxes) => ({
+      ...prevCheckboxes,
+      [option]: !prevCheckboxes[option],
+    }));
+  };
     // lets get back on track  im excited
   return (
     <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
@@ -95,22 +130,22 @@ function Home() {
 
                         <div className="mt-2 space-y-2">
                             <label className="flex items-center">
-                            <input type="checkbox" name="type" value="cardio" className="mr-2" />
+                            <input type="checkbox" name="cardio" value="cardio" onChange={() => handleCheckboxChange('cardio')} className="mr-2" />
                             Cardio
                             </label>
 
                             <label className="flex items-center">
-                            <input type="checkbox" name="type" value="strength-training" className="mr-2" />
+                            <input type="checkbox" name="strength-training" value="strength-training" onChange={() => handleCheckboxChange('strength-training')} className="mr-2" />
                             Strength Training
                             </label>
 
                             <label className="flex items-center">
-                            <input type="checkbox" name="type" value="yoga" className="mr-2" />
+                            <input type="checkbox" name="yoga" value="yoga" onChange={() => handleCheckboxChange('yoga')} className="mr-2" />
                             Yoga
                             </label>
 
                             <label className="flex items-center">
-                            <input type="checkbox" name="type" value="sports" className="mr-2" />
+                            <input type="checkbox" name="sports" value="sports" onChange={() => handleCheckboxChange('sports')} className="mr-2" />
                             Sports
                             </label>
                         </div>
