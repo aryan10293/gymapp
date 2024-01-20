@@ -27,9 +27,9 @@ function Home() {
     "cardio": false
     // Add more options as needed
   });
-    const handleSubmit = (e:any) => {
+    const handleSubmit = async (e:any) => {
         e.preventDefault()
-        const data: Workout = {
+        const workoutData: Workout = {
             age:age,
             weight: weight,
             gender: gender,
@@ -38,7 +38,17 @@ function Home() {
             level: level,
             workoutTypes: checkboxes
         }
-      console.log(data)
+      try {
+        const reg = await fetch('http://localhost:2015/workoutplan',{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(workoutData),
+        })
+        const data = await reg.json()
+        console.log(data)
+      } catch (error) {
+        console.log(error)
+      }
     }
     const handleCheckboxChange = (option:string) => {
     setCheckboxes((prevCheckboxes) => ({
@@ -113,7 +123,7 @@ function Home() {
                    <div className='flex justify-between w-full'>
                      <div className="md:col-span-1 mr-2">
                         <label>Duration</label>
-                        <input type="number" name="time" id="time" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="In Minutes" value="60" />
+                        <input type="number" name="time" id="time" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="In Minutes" />
                     </div>
 
                     <div className="md:col-span-1 mr-2">
