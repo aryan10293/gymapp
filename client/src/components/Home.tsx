@@ -49,6 +49,7 @@ function Home() {
       } catch (error) {
         console.log(error)
       }
+      // hold on
     }
     const handleCheckboxChange = (option:string) => {
     setCheckboxes((prevCheckboxes) => ({
