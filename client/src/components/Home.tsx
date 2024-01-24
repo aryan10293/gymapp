@@ -41,7 +41,7 @@ function Home() {
       try {
         const reg = await fetch('http://localhost:2015/workoutplan',{
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json', 'Authorization': `${localStorage.getItem('token')}`},
             body: JSON.stringify(workoutData),
         })
         const data = await reg.json()
